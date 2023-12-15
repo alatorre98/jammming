@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+input, button {
+    border-radius: 25px;
+    font-size: 25px;
+    font-family: 'Signika', sans-serif;
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    color: #191414;
+    padding: 5px 15px;
+    border: none;
+}
+
+input:focus {
+    outline: 3px solid #1DB954;
+}
+
+button {
+    margin-left: 10px;
+    width: 110px;
+    background-color: #1DB954;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .2s linear;
+}
+
+button:hover {
+    background-color: #25E869;
+}
+
+button:active {
+    background-color: #126E32;
+}
