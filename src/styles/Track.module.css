@@ -1,0 +1,37 @@
+.track {
+    list-style-type: none;
+}
+
+.songInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track h3 {
+    font-size: 20px;
+}
+
+.plusContainer {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.songSeparator {
+    border: 1px solid #191414;
+    opacity: 0.5;
+}
+
+.addSong {
+    cursor: pointer;
+    user-select: none;
+    transition: color .2s linear;
+}
+
+.addSong:hover {
+    color:#1DB954;
+}
+
+.addSong:active {
+    color: #126E32;
+}

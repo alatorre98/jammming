@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../styles/Tracklist.module.css"
+import styles from "../styles/Tracklist.module.css";
+import Track from "./Track";
 
 function Playlist() {
     return (
@@ -7,10 +8,12 @@ function Playlist() {
             <h2>Playlist</h2>
             <hr></hr>
             <ul>
-                <h3>Test</h3>
-                <h3>Test</h3>
-                <h3>Test</h3>
-                <h3>Test</h3>
+                <Track />
+                <Track />
+                <Track />
+                <Track />
+                <Track />
+                <Track />
             </ul>
             <div className={styles.saveContainer}>
                 <button className={styles.saveButton}>Save To Spotify</button>

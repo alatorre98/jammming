@@ -20,6 +20,7 @@ function App() {
         <Tracklist />
         <Playlist />
       </div>
+      
     </div>
       
   );
