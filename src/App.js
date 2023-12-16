@@ -7,9 +7,14 @@ import Playlist from "./components/Playlist";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [songAdd, setSongAdd] = useState({});
 
   const handleSearch = (newSearch) => {
     setSearchValue(newSearch);
+  };
+
+  const handleAdd = (newSong) => {
+    setSongAdd(newSong);
   };
 
   return (
@@ -17,7 +22,7 @@ function App() {
       <Header />
       <SearchBar onSearch={handleSearch} />
       <div className={styles.listContainer}>
-        <Tracklist />
+        <Tracklist onAdd={handleAdd} />
         <Playlist />
       </div>
       

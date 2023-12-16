@@ -12,7 +12,7 @@
     font-size: 20px;
 }
 
-.plusContainer {
+.signContainer {
     font-size: 25px;
     margin-right: 10px;
 }
@@ -22,16 +22,16 @@
     opacity: 0.5;
 }
 
-.addSong {
+.songAction {
     cursor: pointer;
     user-select: none;
     transition: color .2s linear;
 }
 
-.addSong:hover {
+.songAction:hover {
     color:#1DB954;
 }
 
-.addSong:active {
+.songAction:active {
     color: #126E32;
 }

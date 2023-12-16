@@ -1,19 +1,22 @@
 import React from "react";
 import styles from "../styles/Tracklist.module.css"
 import Track from "./Track";
+import { songs } from "../playlistData.js";
 
-function Tracklist() {
+function Tracklist() { 
+
     return (
         <div className={styles.tralistContainer}>
             <h2>Results</h2>
             <hr></hr>
             <ul>
-                <Track />
-                <Track />
-                <Track />
-                <Track />
-                <Track />
-                <Track />
+                {songs.map((song, idx) => 
+                    <Track 
+                    key={idx}
+                    sign={true}
+                    songList={song} 
+                    />
+                )}
             </ul>
             
         </div>
