@@ -1,0 +1,42 @@
+.tralistContainer {
+    background-color: white;
+    color: #191414;
+    width: 500px;
+    padding: 10px 10px 30px;
+    box-shadow:  -10px 10px 0px 0px rgba(29,185,84,1);
+}
+
+h2 {
+    font-size: 30px;
+}
+
+hr {
+    border: 1px solid #191414;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.saveContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.saveButton {
+    width: 170px;
+    background-color: #1DB954;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .2s linear;
+}
+
+.saveButton:hover {
+    background-color: #25E869;
+}
+
+.saveButton:active {
+    background-color: #126E32;
+}

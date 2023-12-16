@@ -24,7 +24,7 @@ input:focus {
     outline: 3px solid #1DB954;
 }
 
-button {
+.searchButton {
     margin-left: 10px;
     width: 110px;
     background-color: #1DB954;
@@ -34,10 +34,10 @@ button {
     transition: background-color .2s linear;
 }
 
-button:hover {
+.searchButton:hover {
     background-color: #25E869;
 }
 
-button:active {
+.searchButton:active {
     background-color: #126E32;
 }

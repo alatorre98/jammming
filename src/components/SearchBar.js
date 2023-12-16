@@ -5,9 +5,11 @@ function SearchBar(props) {
     const [searchText, setSearchText] = useState("");
 
     const handleChange = (e) => {
-        const value = e.target.value;
+        setSearchText(e.target.value);
+    }
 
-        setSearchText((prevText) => value);
+    const handleSearch = () => {
+        props.onSearch(searchText);
     }
 
     return (
@@ -20,7 +22,7 @@ function SearchBar(props) {
                 value={searchText}
                 onChange={handleChange}
              />
-             <button onClick={props.onSearch(searchText)}>
+             <button className={styles.searchButton} onClick={handleSearch}>
                 Search
              </button>
         </div>

@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
+import Tracklist from "./components/Tracklist";
+import Playlist from "./components/Playlist";
 
 function App() {
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-  const passingSearch = (newSearch) => {
-    setSearch((prevSearch) => newSearch);
+  const handleSearch = (newSearch) => {
+    setSearchValue(newSearch);
   };
 
   return (
     <div>
       <Header />
-      <SearchBar onSearch={passingSearch} />
-      <h2>{search}</h2>
+      <SearchBar onSearch={handleSearch} />
+      <div className={styles.listContainer}>
+        <Tracklist />
+        <Playlist />
+      </div>
     </div>
       
   );
