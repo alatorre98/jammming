@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Tracklist.module.css";
 import Track from "./Track";
 
-function Playlist() {
+function Playlist({newSong}) {
     const [playlist, setPlaylist] = useState([]);
+
+    useEffect(() => {
+        if(Object.keys(newSong).length !== 0){
+            setPlaylist((prevList) => [newSong, ...prevList])
+        }
+    }, [newSong]);
+
+    console.log(playlist);
 
     return (
         <div className={styles.tralistContainer}>

@@ -14,7 +14,7 @@ function App() {
   };
 
   const handleAdd = (newSong) => {
-    setSongAdd(newSong);
+    setSongAdd(newSong); 
   };
 
   return (
@@ -23,7 +23,7 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       <div className={styles.listContainer}>
         <Tracklist onAdd={handleAdd} />
-        <Playlist />
+        <Playlist newSong={songAdd} />
       </div>
       
     </div>

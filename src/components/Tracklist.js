@@ -3,7 +3,7 @@ import styles from "../styles/Tracklist.module.css"
 import Track from "./Track";
 import { songs } from "../playlistData.js";
 
-function Tracklist() { 
+function Tracklist(props) { 
 
     return (
         <div className={styles.tralistContainer}>
@@ -14,7 +14,8 @@ function Tracklist() {
                     <Track 
                     key={idx}
                     sign={true}
-                    songList={song} 
+                    songList={song}
+                    onAdd={props.onAdd} 
                     />
                 )}
             </ul>
