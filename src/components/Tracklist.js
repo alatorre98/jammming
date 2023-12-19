@@ -9,7 +9,7 @@ function Tracklist(props) {
             <h2>Results</h2>
             <hr></hr>
             <ul>
-                {!props.songList.length && <h2>Look for some jams...</h2>}
+                {!props.songList.length && <h2>Look for something...</h2>}
                 {props.songList.map((song, idx) => 
                     <Track 
                     key={idx}

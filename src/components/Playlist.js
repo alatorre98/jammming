@@ -4,6 +4,11 @@ import Track from "./Track";
 
 function Playlist({newSong}) {
     const [playlist, setPlaylist] = useState([]);
+    const [playlistName, setPlaylistName] = useState('');
+    const [savedPlaylist, setSavedPlaylist] = useState({
+        name: "",
+        songs: []
+    });
 
     useEffect(() => {
         if(Object.keys(newSong).length !== 0 && 
@@ -18,9 +23,40 @@ function Playlist({newSong}) {
         );
     };
 
+    const handleChange = (e) => {
+        setPlaylistName(e.target.value);
+    }
+
+    const handleSave = () => {
+        if(!playlist.length || !playlistName){
+            alert('You need a name or songs in your playlist');
+        } else {
+            setSavedPlaylist((prevList) => {
+                return {
+                    name: playlistName,
+                    songs: playlist
+                }});
+                setPlaylist([]);
+                setPlaylistName("");
+        }
+    }
+
+    useEffect(() => {
+        console.log(savedPlaylist);
+    }, [savedPlaylist]);
+
     return (
         <div className={styles.tralistContainer}>
-            <input placeholder="Playlist" />
+            <input 
+                placeholder="Name your playlist..."
+                name="playlist"
+                id="playlist"
+                value={playlistName}
+                onChange={handleChange}
+                maxLength="20"
+                type="text"
+                className={styles.playlistInput}
+            />
             <hr></hr>
             <ul>
                 {!playlist.length && <h2>Add some jams...</h2>}
@@ -35,7 +71,7 @@ function Playlist({newSong}) {
                 )}
             </ul>
             <div className={styles.saveContainer}>
-                <button className={styles.saveButton}>Save To Spotify</button>
+                <button onClick={handleSave} className={styles.saveButton}>Save To Spotify</button>
             </div>
             
         </div>

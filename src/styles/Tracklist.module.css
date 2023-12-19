@@ -41,3 +41,10 @@ hr {
 .saveButton:active {
     background-color: #126E32;
 }
+
+.playlistInput {
+    font-size: 30px;
+    font-weight: bold;
+    height: 35px;
+    padding: 0 10px;
+}
