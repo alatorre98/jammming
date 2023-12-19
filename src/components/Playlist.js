@@ -36,13 +36,12 @@ function Playlist({newSong}) {
                     name: playlistName,
                     songs: playlist
                 }});
-                setPlaylist([]);
-                setPlaylistName("");
         }
     }
 
     useEffect(() => {
-        console.log(savedPlaylist);
+        setPlaylist([]);
+        setPlaylistName("");
     }, [savedPlaylist]);
 
     return (
