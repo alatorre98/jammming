@@ -6,19 +6,33 @@ function Playlist({newSong}) {
     const [playlist, setPlaylist] = useState([]);
 
     useEffect(() => {
-        if(Object.keys(newSong).length !== 0){
+        if(Object.keys(newSong).length !== 0 && 
+        newSong !== playlist[0]){
             setPlaylist((prevList) => [newSong, ...prevList])
         }
     }, [newSong]);
 
-    console.log(playlist);
+    const handleDelete = (removeSongIdx) => {
+        setPlaylist((prevList) => 
+            playlist.filter((song, index) => removeSongIdx !== index)
+        );
+    };
 
     return (
         <div className={styles.tralistContainer}>
-            <h2>Playlist</h2>
+            <input placeholder="Playlist" />
             <hr></hr>
             <ul>
                 {!playlist.length && <h2>Add some jams...</h2>}
+                {playlist.map((song, idx) => 
+                    <Track 
+                        key={idx}
+                        songIdx={idx}
+                        sign={false}
+                        songList={song}
+                        onDelete={handleDelete}
+                    />
+                )}
             </ul>
             <div className={styles.saveContainer}>
                 <button className={styles.saveButton}>Save To Spotify</button>

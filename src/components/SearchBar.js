@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/SearchBar.module.css";
+import { songs } from "../playlistData.js";
 
 function SearchBar(props) {
     const [searchText, setSearchText] = useState("");
@@ -9,7 +10,9 @@ function SearchBar(props) {
     }
 
     const handleSearch = () => {
-        props.onSearch(searchText);
+        if(searchText) {
+            props.onSearch(songs);
+        } 
     }
 
     return (

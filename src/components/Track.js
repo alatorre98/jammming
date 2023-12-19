@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Track.module.css";
 
-function Track({sign, songList, onAdd}) {
+function Track({sign, songList, onAdd, onDelete, songIdx}) {
     const [songInfo, setSongInfo] = useState({});
 
     useEffect(() => {
@@ -11,10 +11,15 @@ function Track({sign, songList, onAdd}) {
             album: songList.album
         });
     }
-    , []);
+    , [songList]);
 
     const handleClick = () => {
-        onAdd(songInfo);
+      if(sign) {
+        onAdd(songInfo)
+      } else if (!sign) {
+        onDelete(songIdx)
+      }
+        
     };
 
     return (

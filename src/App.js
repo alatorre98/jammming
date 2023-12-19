@@ -6,11 +6,11 @@ import Tracklist from "./components/Tracklist";
 import Playlist from "./components/Playlist";
 
 function App() {
-  const [searchValue, setSearchValue] = useState("");
   const [songAdd, setSongAdd] = useState({});
+  const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = (newSearch) => {
-    setSearchValue(newSearch);
+  const handleSearch = (newResults) => {
+    setSearchResults(newResults);
   };
 
   const handleAdd = (newSong) => {
@@ -18,11 +18,11 @@ function App() {
   };
 
   return (
-    <div>
+    <div className={styles.appContainer}>
       <Header />
       <SearchBar onSearch={handleSearch} />
       <div className={styles.listContainer}>
-        <Tracklist onAdd={handleAdd} />
+        <Tracklist onAdd={handleAdd} songList={searchResults} />
         <Playlist newSong={songAdd} />
       </div>
       

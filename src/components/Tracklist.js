@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/Tracklist.module.css"
 import Track from "./Track";
-import { songs } from "../playlistData.js";
 
 function Tracklist(props) { 
 
@@ -10,7 +9,8 @@ function Tracklist(props) {
             <h2>Results</h2>
             <hr></hr>
             <ul>
-                {songs.map((song, idx) => 
+                {!props.songList.length && <h2>Look for some jams...</h2>}
+                {props.songList.map((song, idx) => 
                     <Track 
                     key={idx}
                     sign={true}
