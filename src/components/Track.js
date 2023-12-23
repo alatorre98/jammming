@@ -8,7 +8,8 @@ function Track({sign, songList, onAdd, onDelete, songIdx}) {
         setSongInfo({
             title: songList.title,
             artist: songList.artist,
-            album: songList.album
+            album: songList.album,
+            uri: songList.uri
         });
     }
     , [songList]);

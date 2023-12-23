@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { songs } from "../playlistData.js";
 
 function SearchBar(props) {
     const [searchText, setSearchText] = useState("");
+
+    
 
     const handleChange = (e) => {
         setSearchText(e.target.value);
@@ -15,6 +17,12 @@ function SearchBar(props) {
         } 
     }
 
+    const pressEnter = (e) => {
+        if(e.key === "Enter"){
+            handleSearch();
+        }
+    }
+
     return (
         <div className={styles.searchContainer}>
             <input
@@ -24,6 +32,7 @@ function SearchBar(props) {
                 type="text"
                 value={searchText}
                 onChange={handleChange}
+                onKeyDown={pressEnter}
              />
              <button className={styles.searchButton} onClick={handleSearch}>
                 Search
