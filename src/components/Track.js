@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Track.module.css";
 
-function Track({sign, songList, onAdd, onDelete, songIdx}) {
+function Track({sign, songList, onAdd, onDelete, songIdx, songTrack}) {
     const [songInfo, setSongInfo] = useState({});
 
     useEffect(() => {
         setSongInfo({
-            title: songList.title,
-            artist: songList.artist,
-            album: songList.album,
+            title: songList.name,
+            artist: songList.artists[0].name,
+            album: songList.album.name,
             uri: songList.uri
         });
     }
     , [songList]);
+
+    // useEffect(() => {
+    //     setSongInfo({
+    //         title: songList.name,
+    //         artist: songList.artist,
+    //         album: songList.album,
+    //         uri: songList.uri
+    //     });
+    // }
+    // , [songTrack]);
 
     const handleClick = () => {
       if(sign) {
@@ -27,8 +37,8 @@ function Track({sign, songList, onAdd, onDelete, songIdx}) {
         <li className={styles.track}>
             <div className={styles.songInfo}>
                 <div>
-                    <h3>{songList.title}</h3>
-                    <p>{songList.artist} | {songList.album} </p>
+                    <h3>{songInfo.title}</h3>
+                    <p>{songInfo.artist} | {songInfo.album} </p>
                 </div>
                 <div className={styles.signContainer}> 
                     <p 

@@ -10,13 +10,13 @@ function Tracklist(props) {
             <hr></hr>
             <ul>
                 {!props.songList.length && <h2>Look for something...</h2>}
-                {props.songList.map((song, idx) => 
+                {props.songList.map((song) => 
                     <Track 
-                    key={idx}
+                    key={song.uri}
                     sign={true}
                     songList={song}
                     onAdd={props.onAdd} 
-                    />
+                    /> 
                 )}
             </ul>
             

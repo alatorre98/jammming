@@ -59,15 +59,15 @@ function Playlist({newSong}) {
             <hr></hr>
             <ul>
                 {!playlist.length && <h2>Add some jams...</h2>}
-                {playlist.map((song, idx) => 
+                {/* {playlist.map((song, idx) => 
                     <Track 
-                        key={idx}
+                        key={song.uri}
                         songIdx={idx}
                         sign={false}
-                        songList={song}
+                        songTrack={song}
                         onDelete={handleDelete}
                     />
-                )}
+                )} */}
             </ul>
             <div className={styles.saveContainer}>
                 <button onClick={handleSave} className={styles.saveButton}>Save To Spotify</button>
