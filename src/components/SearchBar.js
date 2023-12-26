@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { searchQuery } from "./searchResults.js";
+import { testObject } from "../testObject.js";
 
 function SearchBar(props) {
     const [searchText, setSearchText] = useState("");
@@ -11,13 +12,17 @@ function SearchBar(props) {
     }
 
     const handleSearch = async() => {
-        try {
-            const result = await searchQuery(props.token, searchText);
-            setSongs(result.tracks.items);
-        }
-        catch (error) {
-            console.log(error);
-        }
+        // uncomment at home
+        // try {
+        //     const result = await searchQuery(props.token, searchText);
+        //     setSongs(result.tracks.items);
+        // }
+        // catch (error) {
+        //     console.log(error);
+        // }
+
+        //delete when you get home
+        setSongs(testObject.tracks.items);
     }
 
     useEffect(() => {

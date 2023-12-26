@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Track.module.css";
 
-function Track({sign, songList, onAdd, onDelete, songIdx, songTrack}) {
+function Track({sign, songList, onAdd, onDelete, songIdx, isPlaylist}) {
     const [songInfo, setSongInfo] = useState({});
 
-    useEffect(() => {
-        setSongInfo({
-            title: songList.name,
-            artist: songList.artists[0].name,
-            album: songList.album.name,
-            uri: songList.uri
-        });
+    useEffect(() => {       
+        if (isPlaylist) {
+            setSongInfo({
+                title: songList.title,
+                artist: songList.artist,
+                album: songList.album,
+                uri: songList.uri
+            })
+        }
+        else {
+            setSongInfo({
+                title: songList.name,
+                artist: songList.artists[0].name,
+                album: songList.album.name,
+                uri: songList.uri
+            })
+        }
     }
     , [songList]);
-
-    // useEffect(() => {
-    //     setSongInfo({
-    //         title: songList.name,
-    //         artist: songList.artist,
-    //         album: songList.album,
-    //         uri: songList.uri
-    //     });
-    // }
-    // , [songTrack]);
 
     const handleClick = () => {
       if(sign) {

@@ -35,3 +35,31 @@
 .songAction:active {
     color: #126E32;
 }
+
+@media only screen and (max-width: 920px) {
+    .track h3 {
+        font-size: 18px;
+    }
+    
+    .track p {
+        font-size: 15px;
+    }
+
+    .signContainer p {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .track h3 {
+        font-size: 14px;
+    }
+    
+    .track p {
+        font-size: 12px;
+    }
+
+    .signContainer p {
+        font-size: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-const test = {
+export const testObject = {
     "tracks": {
         "href": "https://api.spotify.com/v1/search?query=j+cole&type=track&locale=en-US%2Cen%3Bq%3D0.9%2Ces%3Bq%3D0.8%2Cja%3Bq%3D0.7&offset=0&limit=10",
         "items": [

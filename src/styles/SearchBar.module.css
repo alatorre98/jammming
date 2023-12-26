@@ -41,3 +41,76 @@ input:focus {
 .searchButton:active {
     background-color: #126E32;
 }
+
+@media only screen and (max-width: 1300px) {
+    .searchContainer {
+        margin: 50px auto;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .searchContainer {
+        margin: 35px auto;
+    }
+
+    input, button {
+        font-size: 20px;
+    }
+
+    input {
+        width: 250px;
+        height: 40px;
+        padding: 4px 12px;
+    }
+
+    .searchButton {
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .searchContainer {
+        margin: 25px auto;
+    }
+
+    input, button {
+        font-size: 18px;
+    }
+
+    input {
+        width: 250px;
+        height: 30px;
+        padding: 4px 12px;
+    }
+
+    .searchButton {
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    input {
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .searchContainer {
+        margin: 20px auto;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
+
+    input {
+        width: 150px;
+        height: 25px;
+    }
+
+    .searchButton {
+        width: 70px;
+        font-size: 16px;
+        height: 25px;
+    }
+}

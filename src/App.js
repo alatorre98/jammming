@@ -11,20 +11,22 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [tokenInfo, setTokenInfo] = useState("");
 
-  useEffect(() => {
-      const fetchToken = async() => {
-          try {
-              const result = await getAccessToken();
-              if(result){
-                  setTokenInfo(result.access_token);
-              }
-          }
-          catch (error) {
-              console.log(error);
-          }
-      }
-      fetchToken();
-  }, []);
+
+  // uncomment at home
+  // useEffect(() => {
+  //     const fetchToken = async() => {
+  //         try {
+  //             const result = await getAccessToken();
+  //             if(result){
+  //                 setTokenInfo(result.access_token);
+  //             }
+  //         }
+  //         catch (error) {
+  //             console.log(error);
+  //         }
+  //     }
+  //     fetchToken();
+  // }, []);
 
   const handleSearch = (newResults) => {
     setSearchResults(newResults);
@@ -40,7 +42,7 @@ function App() {
       <SearchBar onSearch={handleSearch} token={tokenInfo}/>
       <div className={styles.listContainer}>
         <Tracklist onAdd={handleAdd} songList={searchResults} />
-      <Playlist newSong={songAdd} />
+        <Playlist newSong={songAdd} />
       </div>
       
     </div>

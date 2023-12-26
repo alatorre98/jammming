@@ -2,9 +2,33 @@
    width: 100%;
    display: flex;
    justify-content: center;
-   column-gap: 200px;
+   column-gap: 150px;
  }
 
  .appContainer {
   margin-bottom: 150px;
  }
+
+ @media only screen and (max-width: 1300px) {
+    .listContainer {
+      column-gap: 90px;
+    }
+ }
+
+ @media only screen and (max-width: 920px) {
+  .listContainer {
+    column-gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .listContainer {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+  }
+
+  .appContainer {
+    margin-bottom: 100px;
+   }
+}

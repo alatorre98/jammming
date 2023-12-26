@@ -45,6 +45,90 @@ hr {
 .playlistInput {
     font-size: 30px;
     font-weight: bold;
+    width: 100%;
     height: 35px;
-    padding: 0 10px;
+    padding: 0 2px;
+    border-radius: 0;
+}
+
+@media only screen and (max-width: 1300px) {
+    .tralistContainer {
+        width: 430px;
+    }
+}
+
+@media only screen and (max-width: 1075px) {
+    .tralistContainer {
+        width: 370px;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .tralistContainer {
+        width: 320px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .playlistInput {
+        font-size: 23px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .tralistContainer {
+        width: 250px;
+        padding: 7px 7px 18px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .playlistInput {
+        font-size: 18px;
+        height: 23px
+    }
+
+    hr {
+        margin-bottom: 5px;
+    }
+
+    .saveButton {
+        width: 130px;
+        font-size: 15px;
+        padding: 4px;
+        margin-top: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 300px) {
+    .tralistContainer {
+        width: 200px;
+        padding: 7px 7px 18px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .playlistInput {
+        font-size: 18px;
+        height: 23px
+    }
+
+    hr {
+        margin-bottom: 5px;
+    }
+
+    .saveButton {
+        width: 130px;
+        font-size: 15px;
+        padding: 4px;
+        margin-top: 10px;
+    }
+
 }
