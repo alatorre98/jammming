@@ -1,6 +1,6 @@
 const clientId = '7245baf792fe4bb0bdffc97e200ad8f3';
 const clientSecret = 'd241a02ac3fa4325a118ae1641d87bf3';
-const redirectUri = encodeURIComponent('https://splendid-cassata-db5757.netlify.app/');
+const redirectUri = encodeURIComponent('https://meek-bonbon-c631b4.netlify.app/');
 const scopes = 'user-read-private user-read-email playlist-modify-public playlist-modify-private'; // Add other scopes as needed
 
 export const authorizationUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes)}`;
