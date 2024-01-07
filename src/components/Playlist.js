@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Tracklist.module.css";
 import Track from "./Track";
+import { createPlaylist } from "../components/searchResults";
 
-function Playlist({newSong}) {
+function Playlist({newSong, username, token}) {
     const [playlist, setPlaylist] = useState([]);
     const [playlistName, setPlaylistName] = useState('');
+    const [tracksURI, setTracksURI] = useState([]);
     const [savedPlaylist, setSavedPlaylist] = useState({
         name: "",
         songs: []
@@ -13,7 +15,8 @@ function Playlist({newSong}) {
     useEffect(() => {
         if(Object.keys(newSong).length !== 0 && 
         newSong !== playlist[0]){
-            setPlaylist((prevList) => [newSong, ...prevList])
+            setPlaylist((prevList) => [newSong, ...prevList]);
+            setTracksURI((prevTracks) => [newSong.uri, ...prevTracks]);
         }
     }, [newSong]);
 
@@ -21,10 +24,23 @@ function Playlist({newSong}) {
         setPlaylist((prevList) => 
             playlist.filter((song, index) => removeSongIdx !== index)
         );
+        setTracksURI((prevTracks) => 
+            tracksURI.filter((track, index) => removeSongIdx !== index)
+        );
     };
 
     const handleChange = (e) => {
         setPlaylistName(e.target.value);
+    }
+
+    const createUserPlaylist = async() => {
+        try {
+            const spotifyPlaylist = await createPlaylist(token, username, savedPlaylist.songs, savedPlaylist.name);
+            console.log(spotifyPlaylist);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 
     const handleSave = () => {
@@ -34,14 +50,17 @@ function Playlist({newSong}) {
             setSavedPlaylist((prevList) => {
                 return {
                     name: playlistName,
-                    songs: playlist
-                }});
+                    songs: tracksURI
+                }
+            });
         }
     }
 
     useEffect(() => {
         setPlaylist([]);
         setPlaylistName("");
+        setTracksURI([]);
+        createUserPlaylist();
     }, [savedPlaylist]);
 
     return (

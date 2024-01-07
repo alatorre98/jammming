@@ -36,6 +36,12 @@
     color: #126E32;
 }
 
+.playPause {
+    margin-left: 10px;
+    font-size: 20px;
+    user-select: none;
+}
+
 @media only screen and (max-width: 920px) {
     .track h3 {
         font-size: 18px;
@@ -47,6 +53,10 @@
 
     .signContainer p {
         font-size: 25px;
+    }
+
+    .playPause {
+        font-size: 18px;
     }
 }
 
@@ -61,5 +71,9 @@
 
     .signContainer p {
         font-size: 20px;
+    }
+
+    .playPause {
+        font-size: 14px;
     }
 }

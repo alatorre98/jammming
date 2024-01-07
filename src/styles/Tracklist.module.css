@@ -51,6 +51,18 @@ hr {
     border-radius: 0;
 }
 
+.login  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+}
+
 @media only screen and (max-width: 1300px) {
     .tralistContainer {
         width: 430px;

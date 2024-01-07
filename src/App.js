@@ -4,29 +4,59 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Tracklist from "./components/Tracklist";
 import Playlist from "./components/Playlist";
-import { getAccessToken } from "./components/searchResults";
+import LogIn from "./components/LogIn";
+import { getAccessToken, getUser } from "./components/searchResults";
 
 function App() {
   const [songAdd, setSongAdd] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [tokenInfo, setTokenInfo] = useState("");
+  const [logedIn, setLogedIn] = useState(false);
+  const [user, setUser] = useState("");
 
+  useEffect(() => {
+      const fetchToken = async() => {
+          try {
+              // Get the current URL
+              const currentUrl = window.location.href;
+              // Create a URL object (for easier parsing)
+              const urlObj = new URL(currentUrl);
+              // Use URLSearchParams to get the 'code' query parameter
+              const authCode = urlObj.searchParams.get('code');
+              if (authCode) {
+                console.log(authCode);
+                const result = await getAccessToken(authCode);
+                if(result){
+                    setTokenInfo(result.access_token);
+                }
+              }
+          }
+          catch (error) {
+              console.log(error);
+          }
+      }
+      fetchToken();
+      const authCodeURL = window.location.href;
+      // change after auth is working
+      if (authCodeURL.includes("code=")) {
+        setLogedIn(true);
+      }
+  }, []);
 
-  // uncomment at home
-  // useEffect(() => {
-  //     const fetchToken = async() => {
-  //         try {
-  //             const result = await getAccessToken();
-  //             if(result){
-  //                 setTokenInfo(result.access_token);
-  //             }
-  //         }
-  //         catch (error) {
-  //             console.log(error);
-  //         }
-  //     }
-  //     fetchToken();
-  // }, []);
+  useEffect(() => {
+    const fetchUser = async() => {
+      try {
+        const result = await getUser(tokenInfo);
+        if (result) {
+          setUser(result.id);
+        }
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
+    fetchUser();
+  }, [tokenInfo]);
 
   const handleSearch = (newResults) => {
     setSearchResults(newResults);
@@ -36,15 +66,21 @@ function App() {
     setSongAdd(newSong); 
   };
 
+  
+
   return (
     <div className={styles.appContainer}>
       <Header />
-      <SearchBar onSearch={handleSearch} token={tokenInfo}/>
-      <div className={styles.listContainer}>
-        <Tracklist onAdd={handleAdd} songList={searchResults} />
-        <Playlist newSong={songAdd} />
-      </div>
-      
+      {!logedIn && <LogIn />}
+      { logedIn &&
+        <>
+          <SearchBar onSearch={handleSearch} token={tokenInfo}/>
+          <div className={styles.listContainer}>
+            <Tracklist onAdd={handleAdd} songList={searchResults} />
+            <Playlist newSong={songAdd} username={user} token={tokenInfo}/>
+          </div> 
+        </>
+      }
     </div>
       
   );

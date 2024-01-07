@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Track.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePause } from "@fortawesome/free-solid-svg-icons";
 
 function Track({sign, songList, onAdd, onDelete, songIdx, isPlaylist}) {
     const [songInfo, setSongInfo] = useState({});
+    const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {       
         if (isPlaylist) {
@@ -18,7 +22,8 @@ function Track({sign, songList, onAdd, onDelete, songIdx, isPlaylist}) {
                 title: songList.name,
                 artist: songList.artists[0].name,
                 album: songList.album.name,
-                uri: songList.uri
+                uri: songList.uri,
+                preview: songList.preview_url
             })
         }
     }
@@ -33,11 +38,24 @@ function Track({sign, songList, onAdd, onDelete, songIdx, isPlaylist}) {
         
     };
 
+    const handlePlay = () => {
+        // Toggle the state first
+        setIsPlaying(!isPlaying);
+    };
+
     return (
         <li className={styles.track}>
             <div className={styles.songInfo}>
                 <div>
-                    <h3>{songInfo.title}</h3>
+                    <h3>{songInfo.title}
+                        {!isPlaylist && 
+                            <FontAwesomeIcon 
+                                icon={isPlaying ? faCirclePause : faCirclePlay} 
+                                className={styles.playPause}
+                                onClick={handlePlay}
+                            />
+                        }
+                    </h3>
                     <p>{songInfo.artist} | {songInfo.album} </p>
                 </div>
                 <div className={styles.signContainer}> 
